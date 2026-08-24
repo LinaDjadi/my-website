@@ -12,11 +12,7 @@ import barefaceBlog from "./assets/Modern Business Bareface WordPress Theme - Bl
 import barefaceBooking from "./assets/Modern Business Bareface WordPress Theme - Booking System.jpeg";
 
 // PrestaShop module images
-import pickup1 from "./assets/pickup.jpeg";
-import pickup2 from "./assets/pickup2.jpeg";
-import retoursStock1 from "./assets/retoursstock.jpeg";
-import retoursStock2 from "./assets/retoursstock2.jpeg";
-import produits from "./assets/produits.png";
+import prestashopImage from "./assets/presta.jpg";
 
 // ---------- Small inline icons ----------
 const IconPalette = () => (
@@ -108,7 +104,6 @@ const Portfolio = () => {
   const [currentBackofficeIndex, setCurrentBackofficeIndex] = useState(0);
   const [currentBarefaceIndex, setCurrentBarefaceIndex] = useState(0);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
-  const [currentPrestaIndex, setCurrentPrestaIndex] = useState(0);
 
   const [activeSection, setActiveSection] = useState("home");
 
@@ -144,16 +139,6 @@ const Portfolio = () => {
     []
   );
 
-  const prestashopModules = useMemo(
-    () => [
-      { image: pickup1, title: "Pickup Noest — Pickup Point Configuration" },
-      { image: pickup2, title: "Pickup Noest — Order Assignment View" },
-      { image: retoursStock1, title: "Retours Stock — Return Management Dashboard" },
-      { image: retoursStock2, title: "Retours Stock — Stock Update Workflow" },
-      { image: produits, title: "Produits Reconditionnées — Refurbished Product Catalog" },
-    ],
-    []
-  );
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -568,14 +553,20 @@ const Portfolio = () => {
                 </div>
 
                 <div className="project-media">
-                  <Carousel
-                    items={prestashopModules}
-                    index={currentPrestaIndex}
-                    setIndex={setCurrentPrestaIndex}
-                    onImageClick={openZoomModal}
-                    counterVariant="overlay"
-                  />
-                </div>
+  <div className="single-project-image">
+    <img
+      src={prestashopImage}
+      alt="Custom PrestaShop Modules"
+      className="single-project-img"
+      onClick={() =>
+        openZoomModal(
+          [{ image: prestashopImage, title: "Custom PrestaShop Modules" }],
+          0
+        )
+      }
+    />
+  </div>
+</div>
               </div>
             </div>
 
